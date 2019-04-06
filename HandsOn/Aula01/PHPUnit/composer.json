@@ -1,0 +1,13 @@
+{
+    "require-dev": {
+        "phpunit/phpunit" : "^8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Curso\\Loja\\" : [
+                "src/Curso/Loja",
+                "tests/Curso/Loja"
+            ]
+        }
+    }
+}
