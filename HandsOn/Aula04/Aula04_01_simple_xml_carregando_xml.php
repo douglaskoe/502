@@ -4,6 +4,7 @@
 
 $objSimple = new SimpleXMLElement('curso.xml', null, true);
 
+
 echo '<pre>';
 
 print_r($objSimple);
@@ -18,3 +19,5 @@ foreach($objSimple as $curso){
     echo '<br>Categoria do Curso: '.$curso->categoria;
     echo '<hr>';
 }
+
+echo '</pre>';
