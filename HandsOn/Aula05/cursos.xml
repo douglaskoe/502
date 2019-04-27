@@ -4,7 +4,8 @@
         <id>4500</id>
         <nome>Desenvolvimento Web com PHP</nome>
         <categoria>PHP Básico 1</categoria>
-    <carga_horaria>40</carga_horaria></curso>
+    <carga_horaria>40</carga_horaria>
+    <ementa versao="1.0"><topico1>Introdução ao PHP</topico1><topico2>Estrutura de Decisão</topico2></ementa></curso>
     <curso preco="1000">
         <id>4501</id>
         <nome>Desenvolvimento Orientado a Ojetos com PHP</nome>
