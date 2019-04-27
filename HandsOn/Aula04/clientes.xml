@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<clientes count="2">
+    <cliente>
+        <!--
+            <![CDATA[]]>
+        //-->
+        <nome>João</nome>
+        <cpf><![CDATA[123.456.789-00]]></cpf>
+    </cliente>
+    <cliente>
+        <nome><![CDATA[Maria]]></nome>
+        <cpf>098.456.789-00</cpf>
+    </cliente>    
+</clientes>

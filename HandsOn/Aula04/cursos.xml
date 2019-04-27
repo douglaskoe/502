@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <cursos>
-    <curso>
+    <curso preco="950">
         <id>4500</id>
         <nome>Desenvolvimento Web com PHP</nome>
         <categoria>PHP Básico 1</categoria>
