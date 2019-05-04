@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Alunos"
+         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:soapenc="http://schemas.xmlsoap.com/soap/encoding/"
+         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+         xmlns:tns="http://localhost/502/HandsOn/Aula07/ApiSoap.php" >
+
+  <wsdl:message name="listarSaida">
+    <wsdl:part name="listar" type="xsd:json"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="buscarEntrada">
+    <wsdl:part name="buscar" type="xsd:int"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="buscarSaida">
+    <wsdl:part name="buscar" type="xsd:json"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="inserirEntrada">
+    <wsdl:part name="inserir" type="xsd:json"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="inserirSaida">
+    <wsdl:part name="inserir" type="xsd:json"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="alterarEntrada">
+    <wsdl:part name="alterar" type="xsd:json"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="alterarSaida">
+    <wsdl:part name="alterar" type="xsd:json"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="excluirEntrada">
+    <wsdl:part name="excluir" type="xsd:int"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="excluirSaida">
+    <wsdl:part name="excluir" type="xsd:json"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:portType name="AlunosPortType">
+    <wsdl:operation name="listar">
+      <wsdl:output message="tns:listarSaida"></wsdl:output>
+    </wsdl:operation>
+    
+    <wsdl:operation name="buscar">
+      <wsdl:input message="tns:buscarEntrada"></wsdl:input>
+      <wsdl:output message="tns:buscarSaida"></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="inserir">
+      <wsdl:input message="tns:inserirEntrada"></wsdl:input>
+      <wsdl:output message="tns:inserirSaida"></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="alterar">
+      <wsdl:input message="tns:alterarEntrada"></wsdl:input>
+      <wsdl:output message="tns:alterarSaida"></wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="excluir">
+      <wsdl:input message="tns:excluirEntrada"></wsdl:input>
+      <wsdl:output message="tns:excluirSaida"></wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:portType>
+
+  <wsdl:binding name="AlunosBinding" type="tns:AlunosPortType" >
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="listar">
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Alunos"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="buscar">
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Alunos"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Alunos"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+
+    </wsdl:operation>
+
+    <wsdl:operation name="inserir">
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Alunos"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Alunos"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+
+    </wsdl:operation>
+
+    <wsdl:operation name="alterar">
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Alunos"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Alunos"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+
+    </wsdl:operation>
+
+    <wsdl:operation name="excluir">
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Alunos"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Alunos"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+
+    </wsdl:operation>
+
+  </wsdl:binding>
+
+
+
+  <wsdl:service name="Alunos">
+    <wsdl:port name="AlunosPort" binding="tns:AlunosBinding">
+      <soap:address location="http://localhost/502/HandsOn/Aula07/ApiSoap.php" />
+    </wsdl:port>
+  </wsdl:service>
+
+
+</wsdl:definitions>

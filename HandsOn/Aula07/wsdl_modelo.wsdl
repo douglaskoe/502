@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Media"
+         xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:soapenc="http://schemas.xmlsoap.com/soap/encoding/"
+         xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+         xmlns:tns="http://localhost/exemplos_aula/Capitulo4/soap/" >
+
+  <wsdl:message name="mensagemEntrada">
+    <wsdl:part name="n1" type="xsd:double"></wsdl:part>
+    <wsdl:part name="n2" type="xsd:double"></wsdl:part>
+    <wsdl:part name="n3" type="xsd:double"></wsdl:part>
+    <wsdl:part name="n4" type="xsd:double"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="mensagemResposta">
+    <wsdl:part name="media" type="xsd:json"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="checkStatusEntrada">
+    <wsdl:part name="media" type="xsd:double"></wsdl:part>
+  </wsdl:message>
+
+  <wsdl:message name="checkStatusResposta">
+    <wsdl:part name="status" type="xsd:json"></wsdl:part>
+  </wsdl:message>
+
+
+  <wsdl:portType name="MediaPortType">
+    <wsdl:operation name="calcularMedia">
+      <wsdl:input message="tns:mensagemEntrada"></wsdl:input>
+      <wsdl:output message="tns:mensagemResposta"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkStatus">
+      <wsdl:input message="tns:checkStatusEntrada"></wsdl:input>
+      <wsdl:output message="tns:checkStatusResposta"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+
+
+  <wsdl:binding name="MediaBinding" type="tns:MediaPortType" >
+
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+    <wsdl:operation name="calcularMedia">
+      <soap:operation soapAction="urn:Media#calcularMedia" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Media"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Media"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+
+    <wsdl:operation name="checkStatus">
+      <soap:operation soapAction="urn:Media#checkStatus" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Media"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Media"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+
+  </wsdl:binding>
+
+
+
+  <wsdl:service name="Media">
+    <wsdl:port name="MediaPort" binding="tns:MediaBinding">
+      <soap:address location="http://localhost/cursos/Curso502_Noturno_271014/aluno/Capitulo04/Soap/serverSoap.php" />
+    </wsdl:port>
+  </wsdl:service>
+
+
+</wsdl:definitions>
