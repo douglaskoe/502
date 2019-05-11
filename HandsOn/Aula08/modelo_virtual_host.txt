@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+    ServerName site.com.br
+    DocumentRoot path
+    <Directory /var/www/html/cursos/REST_MVC/public>
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        <IfModule mod_authz_core.c>
+          Require all granted
+        </IfModule>
+    </Directory>
+     ErrorLog /var/log/mvc_error.log
+     CustomLog /var/log/mvc_access_log common
+</VirtualHost>

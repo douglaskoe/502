@@ -1,0 +1,48 @@
+    <div class="container">
+    <div class="row">
+    <div class="span12" style="margin-top:20px">
+        <legend class="title">
+            <h3>Lista de Produtos</h3>
+        </legend>
+        <div class="well">
+            <table width="100%" class="table">
+                <col style="width:10%">
+                <thead>
+                    <tr class="bold">
+                        <td>#</td>
+                        <td>NOME</td>
+                        <td>CATEGORIA</td>
+                        <td>PREÇO</td>
+                        <td style="width: 36px;">Ações</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        foreach ($dados as $registro):
+                    ?>
+                        <tr class="bold">
+                            <td><?= $registro->getId(); ?></td>
+                            <td><?= $registro->getNome(); ?></td>
+                            <td><?= $registro->getCategoria() ; ?></td>
+                            <td><?= $registro->getPreco() ; ?></td>
+                            <td style="width: 36px;">
+									<a href="/produtos/editar/<?= $registro->getId(); ?>">
+									     <i class="glyphicon glyphicon-pencil"></i>
+									</a>
+									<!-- Comentário -->
+									<a href="/produtos/excluir/<?= $registro->getId(); ?>">
+									    <i class="glyphicon glyphicon-trash"></i>
+									</a>
+						    </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+
+</html>
